@@ -1,0 +1,1309 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+*Brand
+*/
+
+.brand{
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+  }
+
+  .brand-text-container{
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .brand-text-container h1{
+    margin: 0;
+    font-size: 10px;
+  }
+
+  .brand-text-container h2{
+    margin: 0;
+    font-size: 20px;
+  }
+
+.navbar {
+    display: flex;
+    height: 60px;
+    padding: 0 80px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0);
+    transition: all .3s ease-in-out;
+}
+
+.navbar.scroll {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navbar .nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar .nav li {
+    margin-right: 20px;
+}
+
+.navbar .nav li a {
+    text-align: center;
+}
+
+.navbar .nav li:last-child {
+    margin-right: 0;
+}
+
+.navbar a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-hamburger {
+    display: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 19px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.nav-hamburger::before,
+.nav-hamburger::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    transition: all .3s ease-in;
+}
+
+.nav-hamburger::before {
+    top: 4px;
+}
+
+.nav-hamburger::after {
+    top: 14px;
+}
+
+.nav-hamburger.active::before {
+    top: 10px;
+    transform: rotate(45deg);
+}
+
+.nav-hamburger.active::after {
+    top: 10px;
+    transform: rotate(-45deg);
+}
+
+/* 
+* Section
+*/
+section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px;
+}
+
+section .title {
+    margin: 0 0;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    align-self: center;
+}
+
+section .title::before,
+section .title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+}
+section .title::before {
+    left: -50px;
+}
+section .title::after {
+    right: -50px;
+}
+
+/* 
+* slider
+*/
+#slider {
+    margin-top: 70px;
+    overflow: hidden;
+    position: relative;
+}
+.prev-arrow {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 15px solid #ddd;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    z-index: 999;
+    cursor: pointer;
+}
+.next-arrow{
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    right: 40px;
+    width: 0;
+    height: 0;
+    border-right: 0 solid transparent;
+    border-left: 15px solid #ddd;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    z-index: 999;
+    cursor: pointer;
+}
+
+/*
+* card slider
+*/
+
+.card-slider {
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.card-slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.card-slider-desc {
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    width: 45%;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.card-slider-desc * {
+    color: #fff
+}
+
+.card-slider-desc a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 16px;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    letter-spacing: 1.6px;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+/* 
+* Card tentang
+*/
+
+.card-tentang {
+    width: 650px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 75px 0;
+}
+
+.card-tentang-img {
+    grid-area: 1 / 1 / 6 / 4;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.card-tentang-img .img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-tentang-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.card-tentang-description {
+    grid-area: 3 / 3 / 4 / 5;
+    display: inline-block;
+    padding: 16px 26px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.card-tentang.reverse {
+    align-self: flex-end;
+}
+
+.card-tentang.reverse .card-tentang-img {
+    grid-area: 1 / 2 / 6 / 5;
+}
+
+.card-tentang.noreverse .card-tentang-description {
+    transform-origin: top right;
+    overflow: hidden;
+}
+
+.card-tentang.reverse .card-tentang-description {
+    grid-area: 3 / 1 / 4 / 3;
+    overflow: hidden;
+    transform-origin: top left;
+}
+
+.card-tentang-description p {
+    margin: 0 0 10px;
+}
+
+.card-tentang-description a {
+    color: #000;
+    text-decoration: none;;
+}
+
+
+/*
+* Card Guru
+*/
+#guru {
+    padding: 0px;
+}
+
+.guru-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-guru {
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin: 30px 5px;
+}
+
+.card-guru-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 300px;
+    align-self: center;
+    margin: 30px 0;
+}
+
+.card-guru-desc {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-guru-desc h3 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 0;
+}
+
+.card-guru-table tr{
+    min-width: 30px;
+    align-items: center;
+    text-transform: none;
+}
+
+.card-guru-table td{
+    padding: 10px;
+    margin: 0;
+    min-width: 10px;
+    align-items: center;
+    text-transform: none;
+}
+
+/*
+* Card Alumni
+*/
+
+.card-alumni {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin-right: 30px;
+}
+
+.card-alumni:last-child {
+    margin-right: 60px;
+}
+
+.card-alumni-img {
+    flex: 1;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-alumni-desc {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-alumni-desc h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+.card-alumni-desc p {
+    color: #777;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    font-size: .9em;
+    max-height: 6em;
+    overflow: hidden;
+}
+
+/*
+* card-gallery
+*/
+
+.card-gallery {
+    display: block;
+    height: 100%;
+    box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, .15);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.card-gallery:hover {
+    box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, .35);
+}
+
+.card-gallery .img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 
+* Gallri
+*/
+
+.card-galleri {
+    display: block;
+    height: 100%;
+    box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, .15);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.card-galleri:hover {
+    box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, .35);
+}
+
+.card-galleri img {
+    height: 30vh;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-galleri .img {
+    height: 30vh;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-size: cover;
+}
+
+/*
+* Card Student
+*/
+
+#student {
+    padding-right: 0;;
+}
+
+.student-content {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-student {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin: 30px 15px;
+}
+
+.card-student-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 300px;
+    align-self: center;
+    margin: 30px 0;
+}
+
+.card-student-desc {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-student-desc h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+.card-student-desc p {
+    color: #777;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    font-size: .9em;
+    max-height: 6em;
+    overflow: hidden;
+}
+
+/*
+* Card News
+*/
+
+#news {
+    padding-right: 0;;
+}
+
+.news-content {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-news {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin: 30px 15px;
+}
+
+.card-news-img {
+    flex: 1;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-news-desc {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-news-desc h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+.card-news-desc p {
+    color: #777;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    font-size: .9em;
+    max-height: 6em;
+    overflow: hidden;
+}
+
+/*
+* Tentang Sekolah
+*/
+#tentang-sekolah{
+    margin-top: 80px;
+}
+
+.card-tentang-sekolah {
+    width: 100%;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 75px 0;
+}
+
+.card-tentang-sekolah-img {
+    grid-area: 1 / 1 / 6 / 6;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.card-tentang-sekolah-img .img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-tentang-sekolah-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.card-tentang-sekolah-description {
+    grid-area: 3 / 4 / 5 / 7;
+    display: inline-block;
+    padding: 16px 26px;
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.card-tentang-sekolah.reverse {
+    align-self: flex-end;
+}
+
+.card-tentang-sekolah.reverse .card-tentang-sekolah-img {
+    grid-area: 1 / 2 / 6 / 7;
+}
+
+.card-tentang-sekolah.noreverse .card-tentang-sekolah-description {
+    transform-origin: top right;
+    overflow: hidden;
+}
+
+.card-tentang-sekolah.reverse .card-tentang-sekolah-description {
+    grid-area: 3 / 1 / 5 / 4;
+    overflow: hidden;
+    transform-origin: top left;
+}
+
+.card-tentang-sekolah-description p {
+    margin: 0 0 10px;
+}
+
+.card-tentang-sekolah-description a {
+    color: #000;
+    text-decoration: none;;
+}
+
+/*
+*Visi Misi
+*/
+.card-visi-misi {
+    width: 100%;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 75px 0;
+}
+
+.card-visi-misi-img {
+    grid-area: 1 / 1 / 6 / 7;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.card-visi-misi-img .img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-visi-misi-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.card-visi-misi-description {
+    grid-area: 1 / 1 / 6 / 7;
+    display: inline-block;
+    padding: 16px 26px;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.card-visi-misi.reverse {
+    align-self: flex-end;
+}
+
+.card-visi-misi.reverse .card-visi-misi-img {
+    grid-area: 1 / 1 / 6 / 7;
+}
+
+.card-visi-misi.noreverse .card-visi-misi-description {
+    transform-origin: top right;
+    overflow: hidden;
+}
+
+.card-visi-misi.reverse .card-visi-misi-description {
+    grid-area: 1 / 1 / 6 / 7;
+    overflow: hidden;
+    transform-origin: top left;
+}
+
+.card-visi-misi-description p {
+    margin: 0 0 10px;
+}
+
+.card-visi-misi-description a {
+    color: #000;
+    text-decoration: none;;
+}
+
+/*
+* Detail-berita Card
+*/
+
+.detail-berita{
+    margin-top: 80px;
+    align-content: center;
+}
+
+.card-detail-berita {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+.card-detail-berita-desc-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-detail-berita-desc-header p{
+    margin-left: 10px;
+}
+
+.card-detail-berita-desc-header a{
+    margin-top: 15px;
+    margin-left: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.card-detail-berita-img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-detail-berita-desc {
+    flex: 1;
+    padding: 20px;
+}
+
+
+.card-detail-berita-desc h3 {
+    font-size: 2.3em;
+    margin-top: 0;
+}
+
+.card-detail-berita-desc p {
+    color: #777;
+    flex-direction: row;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    font-size: .9em;
+    max-height: 6em;
+    overflow: hidden;
+    text-align: justify;
+}
+
+/* 
+* Alumni
+*/
+
+#alumni {
+    padding-right: 0;;
+}
+
+.alumni-content {
+    margin-top: 80px;
+    display: flex;
+}
+
+.alumni-content-left {
+    flex: 1;
+}
+
+.alumni-content-left h1 {
+    color: #335ac6;
+    letter-spacing: 2px;
+    line-height: 1.3;
+}
+
+.alumni-content-left h1 span {
+    font-size: 1.5em;
+}
+
+.alumni-content-left p {
+    color: #777;
+    letter-spacing: .4px;
+    line-height: 1.4;
+}
+
+.alumni-content-left a {
+    color: rgb(47, 216, 221);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.alumni-content-right {
+    flex: 4;
+    margin-left: 200px;
+    display: flex;
+    overflow-y: auto;
+    padding: 30px;
+    box-sizing: content-box;
+}
+
+.alumni-content-right::-webkit-scrollbar-track
+{
+	background-color: #fff;
+}
+
+.alumni-content-right::-webkit-scrollbar
+{
+	background-color: #F5F5F5;
+}
+
+.alumni-content-right::-webkit-scrollbar-thumb
+{
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+
+/*
+* Card detail-siswa
+*/
+#detail-siswa {
+    padding: 0px;
+}
+
+.detail-siswa-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-detail-siswa {
+    width: 550px;
+    min-width: 250px;
+    max-width: 500px;
+    height: 750px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin: 30px 5px;
+}
+
+.card-detail-siswa-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 300px;
+    align-self: center;
+    margin: 30px 0;
+}
+
+.card-detail-siswa-desc {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.card-detail-siswa-desc h3 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card-detail-siswa-table{
+    min-width: 30px;
+    text-transform: none;
+}
+
+.card-detail-siswa-table tr{
+    min-width: 30px;
+    text-transform: none;
+}
+
+.card-detail-siswa-table td{
+    padding: 10px;
+    margin: 0;
+    min-width: 10px;
+    align-items: center;
+    text-transform: none;
+}
+
+/*
+* Gallery
+*/
+
+#galleri{
+    margin-top: 80px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+/* 
+* Pagination
+*/
+.pagination {
+    /* background: #f2f2f2; */
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page {
+    display: inline-block;
+    padding: 0px 9px;
+    margin-right: 4px;
+    border-radius: 3px;
+    border: solid 1px #c0c0c0;
+    background: #e9e9e9;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255, .8), 0px 1px 3px rgba(0,0,0, .1);
+    font-size: .875em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #717171;
+    text-shadow: 0px 1px 0px rgba(255,255,255, 1);
+    padding: 8px;
+}
+
+.page:hover, .page.gradient:hover {
+    background: #fefefe;
+}
+
+.page.active {
+    border: none;
+    background: #616161;
+    box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
+    color: #f0f0f0;
+    text-shadow: 0px 0px 3px rgba(0,0,0, .5);
+}
+
+.pagination.dark {
+    background: #414449;
+    color: #feffff;
+}
+
+.page.dark {
+    border: solid 1px #32373b;
+    background: #3e4347;
+    box-shadow: inset 0px 1px 1px rgba(255,255,255, .1), 0px 1px 3px rgba(0,0,0, .1);
+    color: #feffff;
+    text-shadow: 0px 1px 0px rgba(0,0,0, .5);
+}
+
+.page.dark:hover, .page.dark.gradient:hover {
+    background: #3d4f5d;
+}
+
+.page.dark.active {
+    border: none;
+    background: #2f3237;
+    box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .1);
+}
+
+/*
+* More
+*/
+.more-container{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.more-container a{
+    font-size: .8em;
+    color: #000;
+    text-decoration: none;
+    line-height: 2;
+}
+
+
+/*
+* Footer
+*/
+#footer {
+    background-color: rgba(31,31,31,1);
+    min-height: 200px;
+    padding: 70px 0;
+}
+
+#footer > p {
+    margin-top: 50px;
+    text-align: center;
+    color: #fff;
+    line-height: 2;
+    font-size: .75em;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 80px;
+}
+
+.footer-nav > ul > li ul {
+    margin-left: 20px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.footer-nav ul li::before {
+    content: '🢒';
+    color: #fff;
+    display: inline-block;
+    margin-right: 10px;;
+}
+
+.footer-nav ul li a {
+    font-size: .8em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 2;
+    margin-left: 0;
+    transition: margin-left .3s ease-in;
+}
+
+.footer-nav h1{
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.footer-nav p{
+    display: flex;
+    color: #fff;
+}
+
+.footer-nav i{
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    padding-top: 10px;
+}
+
+.footer-nav ul li a:hover {
+    margin-left: 5px;
+}
+
+/* Media Query */
+@media only screen and (max-width: 750px) {
+    section {
+        padding: 0 30px;
+    }
+    .navbar {
+        padding: 0 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #fff;
+    }
+    .navbar .brand {
+        height: 60px;
+        line-height: 60px;
+    }
+    .navbar .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        background-color: #fff;
+        transition: all .7s ease;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    .navbar .nav.active {
+        top: calc(0% + 60px);
+        opacity: 1;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .25);
+        z-index: -1;
+    }
+    .navbar .nav li {
+        margin-right: 0;
+        width: 100%;
+    }
+    .navbar .nav li a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px 26px;
+        border-bottom: 1px solid #ddd;
+    }
+    .navbar .nav li a:first-child {
+        border-top: 1px solid #ddd;
+    }
+    .navbar .nav li a:last-child {
+        border-bottom: none;
+    }
+    .nav-hamburger {
+        display: block;
+    }
+    .card-tentang,
+    .card-tentang.reverse {
+        width: 100%;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        align-self: unset;
+        margin: 30px 0;
+    }
+    .card-tentang-img,
+    .card-tentang.reverse .card-tentang-img {
+        object-fit: cover;
+        grid-area: 1 / 1 / span 5 / span 7;
+        overflow: hidden;
+    }
+    .card-tentang-description,
+    .card-tentang.reverse .card-tentang-description {
+        grid-area: 5 / 2 / span 4 / span 5;
+        overflow: hidden;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+    }
+    .card-tentang-sekolah,
+    .card-tentang-sekolah.reverse {
+        width: 100%;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        align-self: unset;
+        margin: 30px 0;
+    }
+    .card-tentang-sekolah-img,
+    .card-tentang-sekolah.reverse .card-tentang-sekolah-img {
+        object-fit: cover;
+        grid-area: 1 / 1 / span 5 / span 7;
+        overflow: hidden;
+    }
+    .card-tentang-sekolah-description,
+    .card-tentang-sekolah.reverse .card-tentang-sekolah-description {
+        grid-area: 5 / 2 / span 4 / span 5;
+        overflow: hidden;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+    }
+    
+    #alumni {
+        padding-right: 30px;
+    }
+    .alumni-content {
+        flex-direction: column;
+    }
+    .alumni-content-left {
+        text-align: center;
+    }
+    .alumni-content-right {
+        margin-left: 0;
+    }
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-nav> ul {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 840px) {
+    .gallery-container {
+        width: 100%;
+        min-height: 80vh;
+        display: grid;
+        grid-template-columns: minmax(200, 500) minmax(200, 500) minmax(200, 500);
+        grid-template-rows: minmax(200, 500) minmax(200, 500) minmax(200, 500);
+        grid-template-areas: ". . ." ". . ." ". . .";
+        grid-gap: 40px;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .card-gallery {
+        width: 300px;
+        min-height: 300px;
+        max-height: 300px;
+        margin: 30px;
+    }
+    .card-gallery .img {
+        width: 300px !important;
+        height: 300px !important;
+        display: block;
+    }
+
+    @media only screen and (min-width: 840px) {
+        .galleri-container {
+            width: 100%;
+            min-height: 80vh;
+            display: grid;
+            grid-template-columns: minmax(200, 500) minmax(200, 500) minmax(200, 500);
+            grid-template-rows: minmax(200, 500) minmax(200, 500) minmax(200, 500);
+            grid-template-areas: ". . ." ". . ." ". . .";
+            grid-gap: 40px;
+        }
+    }
+    
+    @media only screen and (max-width: 840px) {
+        .card-galleri {
+            width: 300px;
+            min-height: 300px;
+            max-height: 300px;
+            margin: 30px;
+        }
+        .card-galleri .img {
+            width: 300px !important;
+            height: 300px !important;
+            display: block;
+        }
+    }
+}
